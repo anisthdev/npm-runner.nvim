@@ -2,8 +2,6 @@
 
 A Neovim plugin to manage npm scripts without leaving your editor. It allows you to run, stop, and toggle the output of your npm scripts in a dedicated window.
 
-![npm-runner.nvim screenshot](https://neovim.io/images/showcase/terminal-telescope.png)
-
 ## Features
 
 - Run multiple npm scripts concurrently.
@@ -21,7 +19,7 @@ Install the plugin with your favorite plugin manager.
 
 ```lua
 {
-    'asif/npm-runner.nvim',
+    'anisthdev/npm-runner.nvim',
     config = function()
         require('npm-runner').setup({
             -- your custom config
@@ -34,7 +32,7 @@ Install the plugin with your favorite plugin manager.
 
 ```lua
 use {
-    'asif/npm-runner.nvim',
+    'anisthdev/npm-runner.nvim',
     config = function()
         require('npm-runner').setup({
             -- your custom config
@@ -49,7 +47,7 @@ If you want to load this plugin only for JavaScript or TypeScript projects, you 
 
 ```lua
 {
-    'asif/npm-runner.nvim',
+    'anisthdev/npm-runner.nvim',
     -- Conditionally load the plugin only when a package.json is found
     -- in the project root.
     root = {
