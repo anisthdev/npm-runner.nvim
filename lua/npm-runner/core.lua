@@ -90,14 +90,16 @@ function M.start(name)
 		stderr_buffered = false,
 		on_stdout = function(_, data, _)
 			append_data(buf, data)
-			if win and vim.api.nvim_win_is_valid(win) then
-				vim.api.nvim_win_set_cursor(win, { vim.api.nvim_buf_line_count(buf), 0 })
+			local current_script = running_scripts[name]
+			if current_script and current_script.win and vim.api.nvim_win_is_valid(current_script.win) then
+				vim.api.nvim_win_set_cursor(current_script.win, { vim.api.nvim_buf_line_count(buf), 0 })
 			end
 		end,
 		on_stderr = function(_, data, _)
 			append_data(buf, data)
-			if win and vim.api.nvim_win_is_valid(win) then
-				vim.api.nvim_win_set_cursor(win, { vim.api.nvim_buf_line_count(buf), 0 })
+			local current_script = running_scripts[name]
+			if current_script and current_script.win and vim.api.nvim_win_is_valid(current_script.win) then
+				vim.api.nvim_win_set_cursor(current_script.win, { vim.api.nvim_buf_line_count(buf), 0 })
 			end
 		end,
 		on_exit = function(_, code, _)
